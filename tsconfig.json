@@ -3,6 +3,7 @@
     "target": "ES6",
     "module": "commonjs",
     "moduleResolution": "node",
+    "sourceMap": true,
     "noImplicitAny": false,
     "removeComments": true,
     "noLib": false,
@@ -16,10 +17,5 @@
     "esModuleInterop": true,
     "resolveJsonModule": true
   },
-  "exclude": [
-    "node_modules",
-    "dist",
-    "**/__mocks__/*",
-    "**/*.spec.ts"
-  ]
+  "exclude": ["node_modules", "dist", "**/__mocks__/*", "**/*.spec.ts"]
 }

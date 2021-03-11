@@ -3,14 +3,20 @@ import { FastifySchema } from 'fastify';
 
 export const defaultSchema: FastifySchema = {
   response: {
-    200: S.string()
-  }
+    200: S.string(),
+  },
 };
 
 export const helloSchema: FastifySchema = {
-  querystring: S.object()
-    .prop('name', S.string().minLength(1)),
+  querystring: S.object().prop('name', S.string().minLength(1)),
   response: {
-    200: S.string()
-  }
+    200: S.string(),
+  },
+};
+
+export const ksTableSchema: FastifySchema = {
+  querystring: S.object().prop('kstable', S.string().minLength(1)),
+  response: {
+    200: S.string(),
+  },
 };
