@@ -1,7 +1,6 @@
 import { FastifyReply, FastifyRequest } from 'fastify';
 import cassandra from 'cassandra-driver';
 import fs from 'fs';
-import { Timer } from 'timer-node';
 import Logger from '../../utils/logger';
 
 function defaultRoute(req: FastifyRequest, res: FastifyReply): void {
@@ -47,12 +46,15 @@ function getKeyspaceRows(
   const whereClause = "username = 'eplanning' AND domain = 'pugliain.net'";
   const query = `SELECT requests FROM ${req.params.kstable} WHERE ${whereClause} LIMIT 1000`;
 
-  const timer = new Timer('cassandra-request-timer');
-  timer.start();
+  const NS_PER_SEC = 1e9;
+  const time = process.hrtime();
+
   client
     .execute(query)
     .then((result) => {
-      const elapsed = StopWatch(timer);
+      const diff = process.hrtime(time);
+      const elapsed = (diff[0] * NS_PER_SEC + diff[1]) / NS_PER_SEC;
+
       const resultCount = result.rows.length;
       res.send(
         `${result.rows
