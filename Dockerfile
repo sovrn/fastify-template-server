@@ -9,10 +9,11 @@ RUN npm install
 COPY --chown=node:node . .
 
 RUN npm run build && npm prune --production && \
-    mkdir release && \
-    mv dist release && \
-    mv .env.* release && \
-    mv node_modules release
+  mkdir release && \
+  mv dist release && \
+  mv .env.* release && \
+  mv node_modules release
+
 
 FROM node:lts-alpine as production
 

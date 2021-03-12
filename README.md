@@ -3,17 +3,16 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/gkampitakis/fastify-template-server/graphs/commit-activity)
 ![Code Coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen)
 [![Build Status](https://travis-ci.com/gkampitakis/fastify-template-server.svg?branch=master)](https://travis-ci.com/gkampitakis/fastify-template-server)
-[![Fork](https://img.shields.io/github/forks/gkampitakis/fastify-template-server)](https://github.com/gkampitakis/fastify-template-server/fork) 
+[![Fork](https://img.shields.io/github/forks/gkampitakis/fastify-template-server)](https://github.com/gkampitakis/fastify-template-server/fork)
 [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://twitter.com/g_kampitakis)
 
-
-## Description 
+## Description
 
 A template fastify server with basic functionality and structure ready to fork and spin up a server.
 
 ## Contents
 
-This repository is ready for start developing. You can find `controllers` folders where you can register routes and start creating your api. 
+This repository is ready for start developing. You can find `controllers` folders where you can register routes and start creating your api.
 
 Inside this repo you can find `spec` test files. In `package.json` it is specified `100%` coverage you can tweak this number to meet your needs.
 
@@ -25,12 +24,13 @@ Finally you can find to env files, `.env.production` and `.env.dev`. Depending o
 
 ### Locally
 
-In order to run this server locally you need to install dependencies with `npm install` 
+In order to run this server locally you need to install dependencies with `npm install`
 and then `npm run start`.
 
 ### Docker
 
 Build Image:
+
 ```bash
 docker build . -t fastify-template
 # or the dev image
@@ -53,10 +53,20 @@ docker run -p <host-port>:<server-port> --name fastify-template -v /app/node_mod
 docker run -p <host-port>:<server-port> --name fastify-template fastify-template
 ```
 
-## License 
+## License
 
 MIT License
 
 <p align="center">
 ✌️ <a href="https://github.com/gkampitakis/fastify-template-server/issues/new">For any questions or issues</a> ✌️
 </p>
+
+## Notes:
+
+http://localhost:4000/template/kstablename/analyticsadvertising.basic_domain_hourly
+
+docker build -t timingtrial:latest .
+
+to run docker we now need a cert file for access to keyspaces, its being vol mapped into the container
+
+docker run -it --rm -p 8000:4000 -v /Users/hwindhoff:/Users/hwindhoff:ro timingtrial:latest
